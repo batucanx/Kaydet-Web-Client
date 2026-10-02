@@ -21,3 +21,6 @@ test-results/
 *.sqlite3-wal
 *.sqlite3-shm
 /apps/server/data/
+/data/
+__pycache__/
+*.pyc
