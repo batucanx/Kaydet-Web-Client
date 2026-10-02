@@ -1,0 +1,27 @@
+{
+  "name": "kaydet-web",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "tokens": "npm run build --workspace @kaydet/tokens",
+    "dev": "npm run dev --workspace @kaydet/web",
+    "dev:server": "npm run dev --workspace @kaydet/server",
+    "build": "npm run build --workspace @kaydet/web && npm run build --workspace @kaydet/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint . && node scripts/check-no-raw-colors.mjs && node scripts/check-boundaries.mjs",
+    "test": "npm run test --workspaces --if-present",
+    "check:boundaries": "node scripts/check-boundaries.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "typescript-eslint": "^8.71.0"
+  }
+}

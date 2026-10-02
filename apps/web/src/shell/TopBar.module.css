@@ -1,0 +1,92 @@
+.bar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  height: var(--dimen-app-bar-height);
+  padding: 0 var(--space-md);
+  background: var(--color-app-bar-bg);
+  color: var(--color-on-app-bar);
+  /* Dark: separates from bg by tone (mobile appBarBg = surface). Light: brand blue bar. */
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: none;
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  color: var(--color-on-app-bar);
+}
+
+.brand:focus-visible {
+  outline: var(--focus-ring-on-app-bar);
+}
+
+.logo {
+  border-radius: 7px;
+  display: block;
+}
+
+.wordmark {
+  font: var(--font-title-large);
+  letter-spacing: var(--tracking-title-large);
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+  max-width: var(--desktop-search-max-width);
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+  flex: none;
+}
+
+/* Tablet keeps the search centered but lets the wordmark stay. */
+:global([data-shell='tablet']) .actions {
+  margin-left: 0;
+}
+
+:global([data-shell='mobile']) .bar {
+  padding: 0 var(--space-xs);
+  gap: var(--space-xs);
+}
+
+:global([data-shell='mobile']) .brand {
+  padding: var(--space-xs);
+}
+
+:global([data-shell='mobile']) .actions {
+  margin-left: auto;
+}
+
+.mobileSearch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 0 var(--space-xs);
+}
+
+.cancel {
+  flex: none;
+  padding: var(--space-sm);
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--color-on-app-bar);
+  font: var(--font-label-medium);
+  font-size: 0.875rem;
+}
+
+.cancel:focus-visible {
+  outline: var(--focus-ring-on-app-bar);
+}

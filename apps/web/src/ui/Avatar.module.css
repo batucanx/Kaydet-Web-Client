@@ -1,0 +1,16 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  user-select: none;
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.selected {
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+}

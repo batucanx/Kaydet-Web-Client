@@ -1,0 +1,101 @@
+.content,
+.subContent {
+  z-index: 60;
+  min-width: 220px;
+  max-width: min(360px, calc(100vw - 2 * var(--space-lg)));
+  max-height: var(--radix-dropdown-menu-content-available-height, 70vh);
+  overflow-y: auto;
+  padding: var(--space-xs);
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-menu);
+  animation: menu-in var(--motion-fast) var(--ease-standard);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+}
+
+.item,
+.subTrigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: var(--desktop-control-height);
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-xs);
+  font: var(--font-body-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.item[data-highlighted],
+.subTrigger[data-highlighted],
+.subTrigger[data-state='open'] {
+  background: var(--state-hover);
+}
+
+.item[data-disabled] {
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+}
+
+.danger,
+.danger .icon {
+  color: var(--color-danger);
+}
+
+.item[data-state='checked'] {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.icon {
+  flex: none;
+  display: inline-flex;
+  color: var(--color-text-secondary);
+}
+
+.item[data-state='checked'] .icon {
+  color: var(--color-accent);
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  flex: none;
+  color: var(--color-text-tertiary);
+  font: var(--font-label-medium);
+}
+
+.check {
+  flex: none;
+  display: inline-flex;
+  color: var(--color-accent);
+}
+
+.separator {
+  height: 1px;
+  margin: var(--space-xs) 0;
+  background: var(--color-divider);
+}
+
+.label {
+  padding: var(--space-sm) var(--space-md) var(--space-xs);
+  color: var(--color-text-tertiary);
+  font: var(--font-label-medium);
+}

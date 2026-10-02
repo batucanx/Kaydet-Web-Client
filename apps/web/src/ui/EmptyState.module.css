@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-huge) var(--space-xxxl);
+  text-align: center;
+}
+
+.icon {
+  color: var(--color-text-tertiary);
+}
+
+.title {
+  margin-top: var(--space-lg);
+  font: var(--font-title-medium);
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin-top: var(--space-sm);
+  max-width: 40ch;
+  font: var(--font-body-medium);
+  color: var(--color-text-secondary);
+}
+
+.action {
+  margin-top: var(--space-xl);
+}

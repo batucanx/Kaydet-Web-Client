@@ -1,0 +1,14 @@
+/*
+ * Satoshi — the same family the mobile app bundles (pubspec.yaml `family: Satoshi`).
+ * One official Fontshare variable WOFF2 (wght 300–900) serves 400/500/600/700, replacing mobile's
+ * three statics + variable-for-600. The file is byte-identical to the vendor's (ITF FFL v2.0 §02
+ * forbids subsetting/format conversion; see /fonts/Satoshi-FFL-License.txt).
+ * The CSS family name `Satoshi` is an alias for the vendor's `Satoshi-Variable`.
+ */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}

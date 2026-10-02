@@ -1,0 +1,37 @@
+{
+  "name": "@kaydet/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.7.0"
+  },
+  "description": "Kaydet backend foundation: Fastify HTTP layer, application use cases, ports and in-memory adapters. Real Kaydet authentication, credential encryption and SQLite persistence (node:sqlite); no IMAP/SMTP yet.",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/main.ts",
+    "start": "node --env-file-if-exists=.env dist/main.js",
+    "build": "tsc -p tsconfig.json && node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.0",
+    "@kaydet/domain": "*",
+    "fastify": "^5.0.0",
+    "imapflow": "^2.1.2",
+    "mailparser": "^3.9.32",
+    "nodemailer": "^10.0.13",
+    "sanitize-html": "^2.18.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.9.0",
+    "@types/node": "^24.0.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/sanitize-html": "^2.16.2",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  }
+}

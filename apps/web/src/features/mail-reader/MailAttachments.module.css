@@ -1,0 +1,104 @@
+.attachmentSection {
+  padding: var(--space-sm) var(--space-lg);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-surface);
+}
+
+.heading {
+  font: var(--font-label-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.attachmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.attachmentItem {
+  display: flex;
+  align-items: center;
+}
+
+.attachmentCard {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font: var(--font-body-medium);
+  transition: background-color var(--motion-fast) var(--ease-standard),
+              border-color var(--motion-fast) var(--ease-standard);
+  max-width: 280px;
+}
+
+.attachmentCard:hover {
+  background: var(--state-hover);
+  border-color: var(--color-text-tertiary);
+}
+
+.attachmentCard:focus-visible {
+  outline: 2px solid var(--color-accent-fill);
+  outline-offset: 1px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-strong);
+  flex-shrink: 0;
+}
+
+.infoWrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: var(--font-label-medium);
+  color: var(--color-text-primary);
+}
+
+.fileMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font: var(--font-label-small);
+  color: var(--color-text-secondary);
+}
+
+.badge {
+  padding: 0 4px;
+  border-radius: var(--radius-xs);
+  background: var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.downloadIcon {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.attachmentCard:hover .downloadIcon {
+  color: var(--color-text-primary);
+}

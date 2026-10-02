@@ -1,0 +1,105 @@
+.shell {
+  display: grid;
+  height: 100%;
+  grid-template-rows: var(--dimen-app-bar-height) minmax(0, 1fr);
+  grid-template-columns: var(--sidebar-width, var(--desktop-sidebar-width-laptop)) minmax(0, 1fr);
+  grid-template-areas:
+    'top top'
+    'side main';
+  background: var(--color-bg);
+}
+
+.shell[data-shell='tablet'] {
+  --sidebar-width: var(--desktop-sidebar-rail-width);
+}
+
+.shell[data-shell='laptop'] {
+  --sidebar-width: var(--desktop-sidebar-width-laptop);
+}
+
+.shell[data-shell='desktop'] {
+  --sidebar-width: var(--desktop-sidebar-width-desktop);
+}
+
+.shell[data-shell='wide'] {
+  --sidebar-width: var(--desktop-sidebar-width-wide);
+}
+
+/* Mobile web: single column; the sidebar is an off-canvas drawer (position: fixed). */
+.shell[data-shell='mobile'] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'top'
+    'main';
+}
+
+.topWrap {
+  grid-area: top;
+  display: contents;
+}
+
+.main {
+  grid-area: main;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  outline: none;
+}
+
+.skip {
+  position: absolute;
+  z-index: 100;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+  font: var(--font-label-medium);
+  transform: translateY(-200%);
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.fab {
+  position: fixed;
+  z-index: 30;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  height: var(--dimen-fab-size);
+  padding: 0 var(--space-xl);
+  border: 0;
+  border-radius: var(--radius-lg); /* mobile FAB: radius 16 */
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+  font: var(--font-label-medium);
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-menu);
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.fab:hover {
+  background: var(--color-accent-strong);
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  height: 100%;
+}
+
+.splashWord {
+  font: var(--font-title-large);
+  font-size: 1.75rem; /* mobile splash: 28 */
+  letter-spacing: -0.5px;
+}

@@ -1,0 +1,313 @@
+/*
+ * One mail row, two arrangements chosen by the LIST's width (data-layout, set by MailList),
+ * not by the viewport:
+ *   stacked — mobile's arrangement: sender / subject / 2-line preview, date + icons on the right.
+ *   wide    — desktop: [select] sender | subject — preview … labels | meta / hover actions.
+ * Typography, weights and states come from mobile (`MailRow`): unread = weight + dot + accent date.
+ */
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  column-gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-divider);
+  background: transparent;
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.row[data-layout='wide'] {
+  align-items: center;
+  min-height: var(--desktop-row-height-wide);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.row:hover {
+  background: var(--state-hover);
+}
+
+.row[data-active] {
+  background: var(--color-surface);
+}
+
+/* Selected: accentSubtle + 3 px accent bar (mobile). */
+.row[data-selected] {
+  background: var(--color-accent-subtle);
+  box-shadow: inset var(--dimen-selection-bar-width) 0 0 var(--color-accent);
+}
+
+/* Unread dot (mobile: 7 px accent dot at the avatar's left). */
+.dot {
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+.select {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  position: relative;
+  z-index: 1; /* above the stretched link */
+}
+
+.select:focus-visible {
+  outline-offset: -2px;
+}
+
+.row[data-layout='stacked'] .select {
+  align-self: start;
+}
+
+/* Stretched link: the whole row is the click target without nesting buttons inside <a>. */
+.link {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 2px 0;
+  outline: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.link:focus-visible::after {
+  outline: var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.row[data-layout='wide'] .link {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: 0;
+}
+
+/* ---- text -------------------------------------------------------------------------- */
+.sender {
+  font: var(--font-list-sender-read);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row[data-layout='wide'] .sender {
+  flex: none;
+  width: var(--desktop-row-sender-width);
+}
+
+.row[data-unread] .sender {
+  font: var(--font-list-sender-unread);
+  color: var(--color-text-primary);
+}
+
+.content {
+  display: block;
+  min-width: 0;
+}
+
+.subject {
+  display: block;
+  font: var(--font-list-subject-read);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row[data-unread] .subject {
+  font: var(--font-list-subject-unread);
+  color: var(--color-text-primary);
+}
+
+.status {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: var(--space-xs);
+  color: var(--color-text-tertiary);
+}
+
+.preview {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font: var(--font-list-preview);
+  color: var(--color-text-tertiary);
+}
+
+.row[data-unread] .preview {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Wide: subject and preview share one line; the whole run truncates with an ellipsis. */
+.row[data-layout='wide'] .content {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row[data-layout='wide'] .subject,
+.row[data-layout='wide'] .preview {
+  display: inline;
+  overflow: visible;
+}
+
+.row[data-layout='wide'] .preview::before {
+  content: '—';
+  margin: 0 var(--space-sm);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-regular);
+}
+
+.labels {
+  display: flex;
+  flex: none;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.row[data-layout='wide'] .labels {
+  margin-top: 0;
+}
+
+.outbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  font: var(--font-label-small);
+  color: var(--color-text-tertiary);
+}
+
+.row[data-layout='wide'] .outbox {
+  margin-top: 0;
+  flex: none;
+}
+
+.sending {
+  color: var(--color-accent);
+}
+
+.failed {
+  color: var(--color-danger);
+}
+
+/* ---- meta (date + indicators) ------------------------------------------------------ */
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+  padding-top: 2px;
+  pointer-events: none;
+}
+
+.row[data-layout='wide'] .meta {
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 120px;
+  padding-top: 0;
+}
+
+.date {
+  font: var(--font-label-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+.row[data-unread] .date {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.icons {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.iconMuted {
+  color: var(--color-text-tertiary);
+}
+
+.iconPin {
+  color: var(--color-pin-icon);
+}
+
+/* ---- hover / focus actions (wide layout) ------------------------------------------- */
+.quick {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: var(--space-sm);
+  display: none;
+  align-items: center;
+  gap: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-fast) var(--ease-standard);
+}
+
+.row[data-layout='wide'] .quick {
+  display: flex;
+}
+
+/* Reveal on keyboard focus anywhere in the row; on hover only for hover-capable pointers. */
+.row[data-layout='wide']:focus-within .quick {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row[data-layout='wide']:hover .quick {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.row[data-layout='wide']:focus-within .meta {
+  visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row[data-layout='wide']:hover .meta {
+    visibility: hidden;
+  }
+}
+
+/* Mobile-web touch targets. */
+:global([data-shell='mobile']) .select {
+  width: var(--dimen-touch-target);
+  height: var(--dimen-touch-target);
+}
+
+:global([data-shell='mobile']) .row {
+  grid-template-columns: var(--dimen-touch-target) minmax(0, 1fr) auto;
+  min-height: var(--dimen-list-row-min-height);
+}

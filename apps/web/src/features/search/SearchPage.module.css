@@ -1,0 +1,112 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.listPane {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--color-bg);
+}
+
+.hasReader .listPane {
+  flex: 0 0 380px;
+  max-width: 440px;
+  border-right: 1px solid var(--color-divider);
+}
+
+.readerPane {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.backBtn {
+  flex: none;
+}
+
+.inputWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.summaryBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  font: var(--font-label-medium);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.summaryCount {
+  font-weight: 500;
+}
+
+.listContent {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.loadMoreRow {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.loadMoreBtn {
+  font: var(--font-label-medium);
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-md);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.loadMoreBtn:hover {
+  background: var(--state-hover);
+}
+
+.loadMoreBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

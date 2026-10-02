@@ -1,0 +1,43 @@
+.documentContainer {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  position: relative;
+}
+
+.iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: transparent;
+}
+
+.plainTextContainer {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-xl);
+  background: var(--color-bg);
+}
+
+.plainText {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font: var(--font-body-medium);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.emptyBodyNotice {
+  padding: var(--space-xxl);
+  text-align: center;
+  font: var(--font-body-medium);
+  color: var(--color-text-secondary);
+}

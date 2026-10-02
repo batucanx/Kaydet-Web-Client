@@ -1,0 +1,78 @@
+.scroller {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.list {
+  display: block;
+}
+
+/* mobile: DateHeaderItem — quiet group label, sticky so context stays visible. */
+.groupHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.groupTitle {
+  padding: var(--space-sm) var(--space-lg) var(--space-xs);
+  font: var(--font-label-medium);
+  color: var(--color-text-secondary);
+}
+
+.flush {
+  padding: 0;
+}
+
+.pinnedToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-sm) var(--space-lg) var(--space-xs);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.pinnedToggle:hover {
+  background: var(--state-hover);
+}
+
+.pinnedToggle:focus-visible {
+  outline-offset: -2px;
+}
+
+.chevron {
+  transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.pinnedToggle[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+.count {
+  margin-left: var(--space-xs);
+  padding: 0 var(--space-sm);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+/* Keep the last rows clear of the mobile-web compose button. */
+:global([data-shell='mobile']) .scroller {
+  padding-bottom: calc(var(--dimen-fab-size) + var(--space-xxxl));
+}

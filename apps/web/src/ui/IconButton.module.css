@@ -1,0 +1,64 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--desktop-control-height);
+  height: var(--desktop-control-height);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.default {
+  color: var(--color-text-secondary);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.onAppBar {
+  color: var(--color-on-app-bar);
+}
+
+.default:hover,
+.danger:hover {
+  background: var(--state-hover);
+}
+
+.default:active,
+.danger:active {
+  background: var(--state-pressed);
+}
+
+.onAppBar:hover {
+  background: var(--state-hover-on-app-bar);
+}
+
+.onAppBar:active {
+  background: var(--state-pressed-on-app-bar);
+}
+
+.onAppBar:focus-visible {
+  outline: var(--focus-ring-on-app-bar);
+}
+
+.button[aria-pressed='true'] {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.button:disabled {
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+  background: transparent;
+}
+
+/* Touch layout enlarges hit targets to the mobile 48 dp minimum. */
+:global([data-shell='mobile']) .button {
+  width: var(--dimen-touch-target);
+  height: var(--dimen-touch-target);
+}

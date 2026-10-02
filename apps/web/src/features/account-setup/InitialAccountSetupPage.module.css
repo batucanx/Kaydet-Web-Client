@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-xl);
+  background: var(--color-bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  padding: var(--space-xxxl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-dialog);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+}
+
+.logo {
+  font: var(--font-title-large);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0;
+  font: var(--font-title-medium);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  margin: 0;
+  font: var(--font-body-medium);
+  color: var(--color-text-secondary);
+}

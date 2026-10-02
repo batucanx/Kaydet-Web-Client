@@ -1,0 +1,62 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  height: var(--desktop-control-height);
+  padding: 0 var(--space-lg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font: var(--font-label-medium);
+  font-size: 0.875rem; /* mobile: button text = labelMedium at 14 */
+  white-space: nowrap;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+.primary {
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+}
+
+.primary:hover {
+  background: var(--color-accent-strong);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.secondary:hover,
+.ghost:hover {
+  background: var(--state-hover);
+}
+
+.danger {
+  background: var(--color-danger-fill);
+  color: var(--color-on-danger-fill);
+}
+
+.button:active {
+  filter: brightness(0.94);
+}
+
+.button:disabled {
+  background: var(--color-border);
+  border-color: transparent;
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+  filter: none;
+}
+
+:global([data-shell='mobile']) .button {
+  height: var(--dimen-control-height);
+}

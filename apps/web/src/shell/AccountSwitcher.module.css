@@ -1,0 +1,78 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  height: var(--desktop-control-height);
+  padding: 0 var(--space-sm) 0 var(--space-xs);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-on-app-bar);
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.trigger:hover {
+  background: var(--state-hover-on-app-bar);
+}
+
+.trigger:active {
+  background: var(--state-pressed-on-app-bar);
+}
+
+.trigger:focus-visible {
+  outline: var(--focus-ring-on-app-bar);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 200px;
+  text-align: left;
+}
+
+.name,
+.email {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  font: var(--font-label-medium);
+  font-size: 0.8125rem;
+}
+
+.email {
+  font: var(--font-label-medium);
+  font-weight: var(--font-weight-regular);
+  opacity: 0.85;
+}
+
+.chevron {
+  flex: none;
+  opacity: 0.85;
+}
+
+.itemName {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemEmail {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-tertiary);
+  font: var(--font-label-medium);
+  font-weight: var(--font-weight-regular);
+}
+
+:global([data-shell='mobile']) .trigger {
+  min-width: var(--dimen-touch-target);
+  height: var(--dimen-touch-target);
+  justify-content: center;
+}

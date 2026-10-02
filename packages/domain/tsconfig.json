@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Pure TypeScript: no DOM and no Node typings, so browser/Node APIs cannot be referenced at all.
+    "lib": ["ES2023"],
+    "types": []
+  },
+  "include": ["src"]
+}

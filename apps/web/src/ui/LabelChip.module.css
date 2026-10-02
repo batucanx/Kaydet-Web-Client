@@ -1,0 +1,11 @@
+.chip {
+  display: inline-block;
+  max-width: 140px;
+  padding: 2px var(--space-sm);
+  border-radius: var(--radius-xs);
+  font: var(--font-label-medium);
+  line-height: 1.2727;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,117 @@
+.sidebar {
+  grid-area: side;
+  min-height: 0;
+  background: var(--color-surface-deep); /* mobile drawer: surfaceDeep */
+  border-right: 1px solid var(--color-divider);
+  overflow: hidden;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.compose {
+  flex: none;
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+}
+
+.composeButton {
+  width: 100%;
+  height: var(--desktop-control-height);
+  justify-content: flex-start;
+  padding-left: var(--space-lg);
+  gap: var(--space-md);
+}
+
+.composeIcon {
+  width: var(--dimen-touch-target);
+  height: var(--desktop-control-height);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+  margin: 0 auto;
+  display: flex;
+}
+
+.composeIcon:hover {
+  background: var(--color-accent-strong);
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-xs) 0 var(--space-lg);
+  overscroll-behavior: contain;
+}
+
+.list {
+  display: block;
+}
+
+.heading {
+  padding: var(--space-md) var(--space-lg) var(--space-xs);
+  font: var(--font-label-medium);
+  color: var(--color-text-tertiary);
+}
+
+.divider {
+  height: 1px;
+  margin: var(--space-sm) 0;
+  border: 0;
+  background: var(--color-divider);
+}
+
+.skeletonRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  height: var(--desktop-control-height);
+  padding: 0 var(--space-lg);
+}
+
+.error {
+  padding: var(--space-lg);
+  font: var(--font-body-medium);
+  color: var(--color-danger);
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--color-scrim);
+  animation: fade var(--motion-base) var(--ease-standard);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Mobile web: the sidebar becomes an off-canvas drawer. */
+:global([data-shell='mobile']) .sidebar {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(var(--desktop-drawer-width), 88vw);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform var(--motion-base) var(--ease-standard),
+    visibility 0s linear var(--motion-base);
+  box-shadow: var(--shadow-dialog);
+}
+
+:global([data-shell='mobile']) .sidebar[data-open] {
+  transform: none;
+  visibility: visible;
+  transition:
+    transform var(--motion-base) var(--ease-standard),
+    visibility 0s;
+}

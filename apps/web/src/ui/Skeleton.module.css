@@ -1,0 +1,16 @@
+.skeleton {
+  display: block;
+  border-radius: var(--radius-xs);
+  background: var(--color-surface-deep);
+  animation: pulse 1.4s var(--ease-symmetric) infinite;
+}
+
+.circle {
+  border-radius: var(--radius-full);
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

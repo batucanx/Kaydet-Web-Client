@@ -1,0 +1,123 @@
+.row {
+  position: relative;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: var(--desktop-control-height);
+  padding: 0 var(--space-lg);
+  border-left: var(--dimen-selection-bar-width) solid transparent;
+  color: var(--color-text-secondary);
+  font: var(--font-body-medium);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+
+.link:hover {
+  background: var(--state-hover);
+}
+
+.link:active {
+  background: var(--state-pressed);
+}
+
+.link:focus-visible {
+  outline-offset: -2px;
+}
+
+.link:global(.active) {
+  background: var(--color-accent-subtle);
+  border-left-color: var(--color-accent);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.icon {
+  flex: none;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.link:global(.active) .icon {
+  color: var(--color-accent);
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge {
+  flex: none;
+  min-width: 20px;
+  padding: 1px var(--space-sm);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font: var(--font-label-small);
+  text-align: center;
+}
+
+.link:global(.active) .badge {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+/* The chevron sits over the row's right edge, before the badge. */
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: var(--space-sm);
+  display: inline-flex;
+  padding: var(--space-xs);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-tertiary);
+  transform: translateY(-50%);
+}
+
+.row:has(.toggle) .badge {
+  margin-right: var(--space-xxl);
+}
+
+.toggle:hover {
+  background: var(--state-hover);
+}
+
+.chevron {
+  transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.toggle[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+/* Tablet rail: icon-only, badge overlays the icon. */
+.row[data-compact] .link {
+  position: relative;
+  justify-content: center;
+  padding: 0;
+  gap: 0;
+  min-height: var(--dimen-touch-target);
+}
+
+.row[data-compact] .badge {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  min-width: 16px;
+  padding: 0 4px;
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent-fill);
+}
+
+:global([data-shell='mobile']) .link {
+  min-height: var(--dimen-touch-target);
+}
