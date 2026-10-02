@@ -2,8 +2,8 @@
  * Kaydet design tokens — the single source of truth for the web client.
  *
  * Every value marked "mobile" is copied from the Flutter app:
- *   C:\Project\Kaydet\lib\ui\core\theme\tokens.dart   (colors, spacing, radii, motion, dimens)
- *   C:\Project\Kaydet\lib\ui\core\theme\app_theme.dart (typography)
+ *   C:\Projects\KAYDET\lib\ui\core\theme\tokens.dart   (colors, spacing, radii, motion, dimens)
+ *   C:\Projects\KAYDET\lib\ui\core\theme\app_theme.dart (typography)
  * The docs/plan/04-tasarim-sistemi.md file is STALE (Inter, slate palette); the Dart code wins.
  *
  * Values marked "web" are documented adaptations that do not exist on mobile.

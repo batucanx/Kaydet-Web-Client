@@ -1,6 +1,6 @@
 # Kaydet Web Client
 
-Web version of the Kaydet mail client. The Flutter app at `C:\Project\Kaydet` is the source of truth
+Web version of the Kaydet mail client. The Flutter app at `C:\Projects\KAYDET` is the source of truth
 for behavior, terminology and design; see `CLAUDE.md` for the permanent project rules.
 
 ## Layout

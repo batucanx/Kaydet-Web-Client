@@ -1,7 +1,7 @@
 # @kaydet/domain — porting map
 
 Pure TypeScript (no React, DOM/Node APIs, IMAP/SMTP/SQLite, Fastify) shared by `apps/web` and the future
-`apps/server`. Runtime dependency: `zod` only. Mobile (`C:\Project\Kaydet`, read-only) is the source of truth.
+`apps/server`. Runtime dependency: `zod` only. Mobile (`C:\Projects\KAYDET`, read-only) is the source of truth.
 
 Every ported rule carries the same three facts in the header comment of its file: **SOURCE**, **PURPOSE**,
 **WEB USAGE**. This table is the index.

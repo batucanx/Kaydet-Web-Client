@@ -7,20 +7,20 @@ Kaydet product behavior, business rules, domain logic, terminology, and applicab
 
 Mobile application root:
 
-C:\Project\Kaydet
+C:\Projects\KAYDET
 
 When implementing or modifying a feature that already exists in the mobile application:
 
-1. Inspect the corresponding implementation in `C:\Project\Kaydet` before making assumptions.
+1. Inspect the corresponding implementation in `C:\Projects\KAYDET` before making assumptions.
 2. Inspect relevant domain models, use cases, services, state management, and tests.
 3. Trace the actual mobile behavior and business rules.
 4. Port/adapt that behavior to the web architecture rather than inventing new rules.
 5. Keep web-specific UI adaptations where appropriate, but do not change the underlying product behavior without a clear reason.
 
 The mobile application is read-only from the perspective of the web project.
-Do not modify files inside `C:\Project\Kaydet` unless explicitly requested.
+Do not modify files inside `C:\Projects\KAYDET` unless explicitly requested.
 
-If `C:\Project\Kaydet` is unavailable or cannot be accessed, do not guess the mobile behavior.
+If `C:\Projects\KAYDET` is unavailable or cannot be accessed, do not guess the mobile behavior.
 Report the limitation and continue only where the existing web code and project requirements are sufficient.
 
 
